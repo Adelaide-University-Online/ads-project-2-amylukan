@@ -8,9 +8,9 @@
 * This is my own work as defined by
 *    the University's Academic Integrity Policy.
 **/
-import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class Runner {
 
@@ -30,6 +30,7 @@ public class Runner {
         Scanner fileScanner =
                 new Scanner(new File(filename));
 
+
         String firstLine = fileScanner.nextLine();
 
         String[] courses = firstLine.split(",");
@@ -38,12 +39,14 @@ public class Runner {
             graph.addCourse(course.trim());
         }
 
+
         while (fileScanner.hasNextLine()) {
 
             String line = fileScanner.nextLine().trim();
 
-            if (line.isEmpty())
+            if (line.isEmpty()) {
                 continue;
+            }
 
             String[] parts = line.split(",");
 
@@ -58,9 +61,12 @@ public class Runner {
                         course
                 );
             }
+
         }
+
         System.out.println(graph.getAdjacencyList());
         System.out.println(graph.getIndegree());
+
+
     }
 }
-
