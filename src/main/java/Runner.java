@@ -9,10 +9,13 @@
 *    the University's Academic Integrity Policy.
 **/
 import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 public class Runner {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+            throws FileNotFoundException {
 
         Scanner keyboard = new Scanner(System.in);
 
@@ -22,7 +25,39 @@ public class Runner {
         System.out.print("Maximum concurrent courses: ");
         int maxCourses = keyboard.nextInt();
 
-        System.out.println(filename);
-        System.out.println(maxCourses);
+        Graph graph = new Graph();
+
+        Scanner fileScanner =
+                new Scanner(new File(filename));
+
+        String firstLine = fileScanner.nextLine();
+
+        String[] courses = firstLine.split(",");
+
+        for (String course : courses) {
+            graph.addCourse(course.trim());
+        }
+
+        while (fileScanner.hasNextLine()) {
+
+            String line = fileScanner.nextLine().trim();
+
+            if (line.isEmpty())
+                continue;
+
+            String[] parts = line.split(",");
+
+            String course = parts[0].trim();
+
+            for (int i = 1; i < parts.length; i++) {
+
+                String prerequisite = parts[i].trim();
+
+                graph.addPrerequisite(
+                        prerequisite,
+                        course
+                );
+            }
+        }
     }
 }
