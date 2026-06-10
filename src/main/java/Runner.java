@@ -8,13 +8,21 @@
 * This is my own work as defined by
 *    the University's Academic Integrity Policy.
 **/
+import java.util.Scanner;
+
 public class Runner {
-    
+
     public static void main(String[] args) {
-        System.out.println("Welcome to ADS Assignment Starter!");
-        System.out.println("This is a basic Java project template.");
-        System.out.println("You can modify this file to implement your assignment requirements.");
-        
+
+        Scanner keyboard = new Scanner(System.in);
+
+        System.out.print("Enter filename: ");
+        String filename = keyboard.nextLine();
+
+        System.out.print("Maximum concurrent courses: ");
+        int maxCourses = keyboard.nextInt();
+
+        System.out.println(filename);
+        System.out.println(maxCourses);
     }
-    
 }
