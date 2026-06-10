@@ -59,5 +59,8 @@ public class Runner {
                 );
             }
         }
+        System.out.println(graph.getAdjacencyList());
+        System.out.println(graph.getIndegree());
     }
 }
+

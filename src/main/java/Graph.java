@@ -16,7 +16,17 @@ public class Graph {
     }
 
     public void addPrerequisite(String prerequisite, String course) {
+
+        if (!adjacencyList.containsKey(prerequisite)) {
+            System.out.println("Missing prerequisite: " + prerequisite);
+        }
+
+        if (!adjacencyList.containsKey(course)) {
+            System.out.println("Missing course: " + course);
+        }
+
         adjacencyList.get(prerequisite).add(course);
+
         indegree.put(course, indegree.get(course) + 1);
     }
 
@@ -27,4 +37,5 @@ public class Graph {
     public Map<String, Integer> getIndegree() {
         return indegree;
     }
+
 }
