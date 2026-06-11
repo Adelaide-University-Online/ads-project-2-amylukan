@@ -17,6 +17,7 @@ public class DegreePlanner {
         }
 
         int studyPeriod = 1;
+        int processedCourses = 0;
 
         while (!queue.isEmpty()) {
 
@@ -52,6 +53,11 @@ public class DegreePlanner {
             }
 
             studyPeriod++;
+        }
+        if (processedCourses != indegree.size()) {
+
+            System.out.println("\nCycle detected in graph.");
+
         }
     }
 }
