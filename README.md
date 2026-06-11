@@ -61,15 +61,15 @@ Open a terminal in the project root directory and run:
 
 ```bash
 javac src/main/java/*.java
-
+```
 2. Run the program
 3. Provide input when prompted
 You will be asked: "Enter filename:"
 Example input: "degree.txt"
 
-You will be asked: "Maximum concurrent courses:
+You will be asked: "Maximum concurrent courses:"
 Example input: "4"
-```
+
 
 # AI Usage
 
