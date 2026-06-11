@@ -1,9 +1,9 @@
 /**
-* File: filename.java
-* Description: A brief description of this Java module.
-* Author: Steve Jobs
-* Student ID: 12345678
-* Email ID: jobst007
+* File: Runner.java
+* Description: Runner is the entry point of the program. It reads the input file and maximum concurrent course limit from the user, constructs the graph, and invokes the scheduling algorithm.
+* Author: Amy Lukan
+* Student ID: 2911169
+* Email ID: amy.lukan@student.adelaide.edu.au
 * AI Tool Used: Y/N (This includes all AI Tools e.g. ChatGPT, Microsoft or Github Copiliot etc... Please leave blank if you do not wish to share this information)
 * This is my own work as defined by
 *    the University's Academic Integrity Policy.
@@ -13,7 +13,12 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Runner {
-
+    /**
+     * Reads degree information from a text file and
+     * generates a study plan based on prerequisite
+     * relationships and the maximum number of courses
+     * that can be taken concurrently.
+     */
     public static void main(String[] args)
             throws FileNotFoundException {
 
@@ -25,12 +30,13 @@ public class Runner {
         System.out.print("Maximum concurrent courses: ");
         int maxCourses = keyboard.nextInt();
 
+// creates graph to store course dependencies
         Graph graph = new Graph();
 
         Scanner fileScanner =
                 new Scanner(new File(filename));
 
-
+// reads  all course codes from the first line of the file
         String firstLine = fileScanner.nextLine();
 
         String[] courses = firstLine.split(",");
@@ -39,7 +45,7 @@ public class Runner {
             graph.addCourse(course.trim());
         }
 
-
+// Process each remaining line and add prerequisite relationships
         while (fileScanner.hasNextLine()) {
 
             String line = fileScanner.nextLine().trim();
@@ -63,6 +69,7 @@ public class Runner {
             }
 
         }
+        // create and display the degree schedule.
         DegreePlanner.createSchedule(graph, maxCourses);
     }
 }
