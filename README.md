@@ -69,6 +69,7 @@ Example input: "degree.txt"
 
 You will be asked: "Maximum concurrent courses:
 Example input: "4"
+```
 
 # AI Usage
 
