@@ -18,6 +18,7 @@ public class DegreePlanner {
 
         int studyPeriod = 1;
         int processedCourses = 0;
+        System.out.println("\nDegree Plan");
 
         while (!queue.isEmpty()) {
 
@@ -36,7 +37,7 @@ public class DegreePlanner {
 
             for (String course : currentPeriod) {
 
-                System.out.println(course);
+                System.out.println("- " + course);
 
                 for (String neighbour :
                         graph.getAdjacencyList().get(course)) {
