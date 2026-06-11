@@ -71,5 +71,8 @@ public class Runner {
         }
         // create and display the degree schedule.
         DegreePlanner.createSchedule(graph, maxCourses);
+
+        keyboard.close();
+        fileScanner.close();
     }
 }
