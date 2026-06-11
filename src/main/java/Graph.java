@@ -33,19 +33,22 @@ public class Graph {
      // Adds a directed edge from a prerequisite course to the dependent course
      // @param prerequisite the prerequisite course
     // @param course the course requiring that prerequisite
-    public void addPrerequisite(String prerequisite, String course) {
+     public void addPrerequisite(String prerequisite, String course) {
 
-        prerequisite = prerequisite.trim();
-        course = course.trim();
+         prerequisite = prerequisite.trim();
+         course = course.trim();
 
+         // warning for undefined prerequisite
+         if (!adjacencyList.containsKey(prerequisite)) {
+             System.out.println("Warning: prerequisite course "
+                     + prerequisite
+                     + " is referenced but not defined in the course list.");
+             return;
+         }
 
-        addCourse(prerequisite);
-        addCourse(course);
+         adjacencyList.get(prerequisite).add(course);
 
-        adjacencyList.get(prerequisite).add(course);
-
-        indegree.put(course,
-                indegree.get(course) + 1);
+         indegree.put(course, indegree.get(course) + 1);
     }
 
      // Returns the adjacency list representation of the graph
