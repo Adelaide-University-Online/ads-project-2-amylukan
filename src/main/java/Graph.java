@@ -38,18 +38,23 @@ public class Graph {
          prerequisite = prerequisite.trim();
          course = course.trim();
 
-         // warning for undefined prerequisite
          if (!adjacencyList.containsKey(prerequisite)) {
-             System.out.println("Warning: prerequisite course "
-                     + prerequisite
-                     + " is referenced but not defined in the course list.");
+
+             System.out.println(
+                     "Invalid prerequisite reference: "
+                             + prerequisite
+                             + " for course "
+                             + course
+             );
              return;
          }
-
          adjacencyList.get(prerequisite).add(course);
 
-         indegree.put(course, indegree.get(course) + 1);
-    }
+         indegree.put(
+                 course,
+                 indegree.get(course) + 1
+         );
+     }
 
      // Returns the adjacency list representation of the graph
     public Map<String, List<String>> getAdjacencyList() {

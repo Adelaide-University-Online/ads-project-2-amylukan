@@ -53,6 +53,7 @@ public class DegreePlanner {
             for (int i = 0; i < coursesThisPeriod; i++) {
 
                 currentPeriod.add(queue.poll());
+                processedCourses++;
             }
 
             System.out.println("\nStudy Period " + studyPeriod);
